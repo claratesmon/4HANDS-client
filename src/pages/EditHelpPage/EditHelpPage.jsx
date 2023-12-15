@@ -2,7 +2,7 @@ import "./EditHelpPage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from 'react'
 import { AuthContext } from "../../context/auth.context";
-
+import service from "../../services/file-upload.service";
 
 function EditHelpForm() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -14,6 +14,24 @@ function EditHelpForm() {
     const [isCompleted, setIsCompleted] = useState('')
     const { helpId } = useParams()
     const navigate = useNavigate();
+
+    const handleFileUpload = (e) => {
+        //console.log("The file to be uploaded is: ", e.target.files);
+        
+        const uploadData = new FormData();
+        
+        uploadData.append('helpImageUrl', e.target.files[0]);
+        
+        console.log("UploadData", uploadData);
+        service
+            .uploadImage(uploadData)
+            .then(response => {
+                // console.log("response is: ", response);
+                // response carries "fileUrl" which we can use to update the state
+                setHelpImage(response.fileUrl);
+            })
+            .catch(err => console.log("Error while uploading the file: ", err));
+    };
 
     useEffect(() => {
 
@@ -88,7 +106,12 @@ function EditHelpForm() {
                     <textarea value={description} onChange={(event) => setDescription(event.target.value)} type="textarea" name="description" />
 
                     <label htmlFor="helpImageUrl">Image</label>
-                    <textarea value={helpImageUrl} onChange={(event) => setHelpImage(event.target.value)} type="text" name="helpImageUrl" />
+                    <input type="file" accept="image/*" className="image-input"
+                        
+                        onChange={(event) => handleFileUpload(event)}
+                        name="helpImageUrl"
+                        id="helpImageUrl" />
+                    {helpImageUrl && <img className="img-preview" src={helpImageUrl} alt="Help Image" />}
 
                     <p onClick={(event) => putHelp(event)} className="create-help-button" type="submit">SAVE CHANGES</p>
                 </form>

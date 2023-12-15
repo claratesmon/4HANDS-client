@@ -7,10 +7,10 @@
     font-family: 'Raleway', sans-serif;
 }
 
-.create-help-container input,
+.create-help-container .image-input,
 .create-help-container select{
 
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .create-help-container{
@@ -42,7 +42,9 @@ h1{
 .create-help-container p:hover{
     background-color: rgb(255, 166, 70);
 }
-
+.img-preview{
+    width: 50vw;
+}
 .create-help-button{
     color: rgb(240, 243, 247);
     outline: 1px solid whitesmoke;
