@@ -17,8 +17,9 @@
 
 .testimony-creator img {
     width: 50px;
-    max-height: 50px;
+    height: 50px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .testimony .quote {

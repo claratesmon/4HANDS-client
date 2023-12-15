@@ -38,15 +38,36 @@ function UserProfile() {
         <>
             {userData && !isMe() ? navigate("/myprofile") : (
                 <div>
-                    <div>
-                        <h1>User Profile</h1>
-                        <h2>{userData.name}</h2>
-                        <h2>user ID:{userData._id}</h2>
-                        <img className="user-profilepicture" src={userData.profilePicture} alt={userData.name} />
-                        <p>Location: {userData.location}</p>
-                        <p>Skills: {userData.skills}</p>
-                        <p>Number of tokens: {userData.tokens}</p>
-                        <p>Your posts:{userData.helpPosts}</p>
+                     <div className="profile-container">
+                        <div className="profile-card">
+
+                            <div className="user-details-picture-responsive">
+                                <div className="profile-picture-container">
+                                    <img className="user-profilepicture" src={userData.profilePicture} alt={userData.name} />
+                                </div>
+
+                                <div className="user-details-container">
+                                    <div className="user-details-responsive">
+
+                                        <h2 className="user-name">{userData.name}</h2>
+                                        <div className="location-container">
+                                            <h4>Location:</h4>
+                                            <p>{userData.location}    <i className="fa fa-map-marker"></i></p>
+                                        </div>
+                                        <div className="skills-container">
+                                            <h4 className="skills-title">Skills:</h4>
+                                            <p> {userData.skills}</p>
+                                        </div>
+                                        
+                                        <div className="skills-container">
+                                            <h4 className="skills-title">Contact:</h4>
+                                            <p>E-Mail: {userData.email}</p>
+                                            {userData.phone ? (<p>Tel.: {userData.phone}</p>) : (<></>)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>)}
         </>);

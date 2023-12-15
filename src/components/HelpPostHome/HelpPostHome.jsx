@@ -4,7 +4,7 @@ import "./HelpPostHome.css";
 
 const HelpPostHome = (props) => {
 	const {_id, title, location, description, creator} = props.post;
-	console.log("creator",creator)
+	
 
 	return (
 		

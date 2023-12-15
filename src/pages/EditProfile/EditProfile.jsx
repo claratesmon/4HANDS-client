@@ -2,6 +2,7 @@ import './EditProfile.css'
 import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from '../../context/auth.context';
+import service from "../../services/file-upload.service";
 
 function EditProfile() {
   const [userPut, setUserPut] = useState('')
@@ -16,7 +17,23 @@ function EditProfile() {
   const userIdFromAuth = user._id
   const navigate = useNavigate()
 
+  const handleFileUpload = (e) => {
+    //console.log("The file to be uploaded is: ", e.target.files);
 
+    const uploadData = new FormData();
+
+    uploadData.append('profilePicture', e.target.files[0]);
+
+    console.log("UploadData", uploadData);
+    service
+      .uploadImageProfile(uploadData)
+      .then(response => {
+        // console.log("response is: ", response);
+        // response carries "fileUrl" which we can use to update the state
+        setProfilePicture(response.fileUrl);
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  };
   useEffect(() => {
     fetch(`${BACKEND_ROOT}/user/${userIdFromAuth}`)
       .then((response) => {
@@ -73,7 +90,13 @@ function EditProfile() {
           <textarea type="textarea" name="location" value={location} onChange={(event) => setLocation(event.target.value)} />
           <br />
           <label htmlFor="profilePicture">Profile Picture: </label>
-          <textarea type="textarea" name="profilePicture" value={profilePicture} onChange={(event) => setProfilePicture(event.target.value)} />
+          <input type="file" accept="image/*" className="image-input"
+
+            onChange={(event) => handleFileUpload(event)}
+            name="profilePicture"
+            id="profilePicture" />
+          {profilePicture && <img className="img-preview" src={profilePicture} alt="User Profile Image" />}
+
           <br />
           <label htmlFor="skills">Skills: </label>
           <textarea type="textarea" name="skills" value={skills} onChange={(event) => setSkills(event.target.value)} />
@@ -81,7 +104,7 @@ function EditProfile() {
           <label htmlFor="description">Description: </label>
           <textarea type="textarea" name="description" value={description} onChange={(event) => setDescription(event.target.value)} />
           <br />
-          <button type="submit">Send</button>
+          <button className='edit-send' type="submit">Send</button>
         </div>
       </form>
     </div >

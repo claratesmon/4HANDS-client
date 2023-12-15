@@ -19,7 +19,7 @@ const Testimony = (props) => {
             <p className="quote">{text}</p>
                 
                 <div className="testimony-creator">
-                <img src={creator.profilePicture} alt={creator.name} />
+                <img className="testimony-thumbnail" src={creator.profilePicture} alt={creator.name} />
                 <p>{creator.name}</p>
                 <p className="testimony-rating">{setStars(rating)}</p>
                 </div>
