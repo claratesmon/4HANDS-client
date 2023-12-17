@@ -9,12 +9,13 @@
 }
 
 .navbar {
-
+    z-index: 0;
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    
-   
+    margin-top: 0px;
+
+
 }
 
 .navbar .sidebar {
@@ -103,13 +104,32 @@ nav .home {
     border: 0;
 }
 
+.no-tokens-banner {
+    z-index: 2;
+    background-color: rgb(251, 106, 106);
+    height: 50px;
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+    position: fixed;
+    width: 100%;
+}
 
+.no-tokens-banner.hidden {
+    top: -100% !important;
+    transition: 500ms ease-in-out;
+
+}
+
+.no-tokens-banner p {
+    padding: 12px;
+}
 
 .logo {
     height: 30px;
     width: 30px;
     margin-left: 10px;
     margin-bottom: 5px;
+    margin-top: 8px;
 
 
 }
@@ -182,15 +202,15 @@ nav .home {
         height: 35px;
         width: 100px;
         text-align: center;
-        
+
         font-size: 20px;
     }
+
     .navbar {
 
-        
+
         padding: 15px;
-        
-       
+
+
     }
 }
-

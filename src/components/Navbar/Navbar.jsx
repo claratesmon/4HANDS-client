@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/auth.context";
 
@@ -8,6 +8,7 @@ function Navbar() {
   const [userData, setUserData] = useState('')
   const { userId } = useParams()
   const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+  const navigate = useNavigate();
 
   const handleSidebar = () => {
     const sideBar = document.querySelector(".navbar .sidebar");
@@ -15,21 +16,56 @@ function Navbar() {
     if (sideBar.style.right === "0px") {
       sideBar.style.right = "-400px"
     }
+  };
+
+  const hasTokens = async () => {
+    console.log(userData.tokens)
+    if (userData.tokens < 1) {
+      navigate("/myprofile");
+      console.log("navigate called")
+       try {
+         await new Promise((resolve) => setTimeout(resolve, 300));
+         const banner = document.querySelector(".no-tokens-banner")
+         banner.classList.toggle("hidden");
+ 
+         if (banner.style.top === "0px") {
+           banner.style.top = "-300px"
+           
+ 
+         }
+ 
+       } catch (error) {
+         console.log("There was an error:", error)
+       }
+
+    }
   }
+  const hideBanner = () => {
+    const banner = document.querySelector(".no-tokens-banner");
+  
+    // Hide the banner after 5 seconds
+    setTimeout(() => {
+      banner.classList.add("hidden");
+    }, 4000);
+  };
 
   useEffect(() => {
     if (user) {
       fetch(`${BACKEND_ROOT}/user/${user._id}`)
         .then((response) => response.json())
         .then((responseJson) => {
+
           setUserData(responseJson);
         })
         .catch((err) => console.log(err));
     }
-  }, [user])
+  }, [user]);
 
   return (
     <div className="navbar-container">
+      <div className="no-tokens-banner hidden">
+        <p>Sorry, your are out of tokens</p>
+      </div>
       <nav className="navbar">
         {isLoggedIn && (
           <>
@@ -37,6 +73,7 @@ function Navbar() {
               <img className="logo" src="/images/4H-2.svg" alt="" />
             </Link>
             <img className="right-button" onClick={handleSidebar} src={userData.profilePicture} alt="profile picture" />
+
             <div className="sidebar hidden">
               <div onClick={handleSidebar} className="center">
                 <div></div>
@@ -55,7 +92,17 @@ function Navbar() {
                   </li>
                   <li >
                     <Link to="/createhelp">
-                      <p onClick={handleSidebar} className="side-element">Create Help request</p>
+                      <p onClick={(event) => {
+                        handleSidebar(event);
+                        if (userData.tokens < 1) {
+                          event.preventDefault(); // prevent the default action
+                          navigate("/myprofile");
+                          hasTokens();
+                          hideBanner();
+                        }
+                      }} className="side-element">
+                        Create Help request
+                      </p>
                     </Link>
                   </li>
                   <li >
