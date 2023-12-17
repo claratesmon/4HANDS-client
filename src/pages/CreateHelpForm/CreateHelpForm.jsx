@@ -8,22 +8,23 @@ function CreateHelpForm() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const [helpPosts, setHelpPosts] = useState([])
     const [title, setTitle] = useState('')
+    const [category, setCategory] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
     const [helpImageUrl, setHelpImage] = useState('')
     const [creator, setCreator] = useState('')
     const [volunteers, setVolunteers] = useState('')
     const [isCompleted, setIsCompleted] = useState('')
-   
+
     const navigate = useNavigate();
 
     const handleFileUpload = (e) => {
         //console.log("The file to be uploaded is: ", e.target.files);
-        
+
         const uploadData = new FormData();
-        
+
         uploadData.append('helpImageUrl', e.target.files[0]);
-        
+
         console.log("UploadData", uploadData);
         service
             .uploadImage(uploadData)
@@ -37,13 +38,14 @@ function CreateHelpForm() {
 
     const postHelp = async (event) => {
         event.preventDefault();
-        
+
 
         const helpPosts = {
             title,
             location,
             description,
             helpImageUrl,
+            category,
             creator: user._id,
             volunteers,
             isCompleted
@@ -85,11 +87,22 @@ function CreateHelpForm() {
 
                     <label htmlFor="description">Description</label>
                     <textarea value={description} onChange={(event) => setDescription(event.target.value)} type="text" name="description" id="description" />
+                    <label htmlFor="category">Category</label>
+                    <select value={category} onChange={(event) => setCategory(event.target.value)} type="text" name="description" id="description" >
+                        <option value="Study">Study</option>
+                        <option value="Tech">Tech</option>
+                        <option value="Talk session">Talk session</option>
+                        <option value="Transport">Transport</option>
+                        <option value="House repairs">House repairs</option>
+                        <option value="Advice">Advice</option>
+                        <option value="Cooking">Cooking</option>
+                        <option value="Others">Others</option>
+                    </select>
 
 
                     <label htmlFor="helpImageUrl">Image </label>
                     <input type="file" accept="image/*" className="image-input"
-                        
+
                         onChange={(event) => handleFileUpload(event)}
                         name="helpImageUrl"
                         id="helpImageUrl" />

@@ -35,6 +35,10 @@ h1{
     margin-top: 20px;
 }
 
+.create-help-container select{
+    color: black;
+}
+
 .create-help-container p{
     margin-top: 20px;
 }

@@ -47,7 +47,7 @@ function LoginPage() {
     <div className="LoginPage">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
+      <form  className="login-form" onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -64,7 +64,7 @@ function LoginPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don{"'"}t have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link className="sign-up-login" to={"/signup"}> Sign Up</Link>
     </div>
   );
 }

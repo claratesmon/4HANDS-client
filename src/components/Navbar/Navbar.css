@@ -12,9 +12,9 @@
 
     display: flex;
     justify-content: space-between;
-    padding: 5px;
-    
-   
+    padding: 10px;
+
+
 }
 
 .navbar .sidebar {
@@ -86,11 +86,13 @@
     padding-right: 10px;
     padding-left: 10px;
     border-radius: 15px;
+    text-decoration: none;
 }
 
 .nav-b-left:hover {
     background-color: rgb(255, 166, 70);
-
+    text-decoration: none;
+    color: aliceblue;
 }
 
 .sidebar-profile {
@@ -103,15 +105,12 @@ nav .home {
     border: 0;
 }
 
-
-
 .logo {
     height: 30px;
     width: 30px;
     margin-left: 10px;
     margin-bottom: 5px;
-
-
+    margin-top: 5px;
 }
 
 .right-button {
@@ -167,30 +166,32 @@ nav .home {
         border-radius: 30px;
         width: 50px;
         height: 50px;
-
-
+        text-decoration: none;
     }
 
     .logo {
         height: 50px;
         width: 50px;
-
-
     }
 
-    .nav-b-left {
+    p.nav-b-left {
         height: 35px;
         width: 100px;
         text-align: center;
-        
+        text-decoration: none;
         font-size: 20px;
     }
-    .navbar {
 
-        
+    .nav-b-left:hover{
+        text-decoration: none;
+    }
+
+    .navbar {
         padding: 15px;
-        
-       
+    }
+    
+    .navbar a{
+        text-decoration: none;
+
     }
 }
-

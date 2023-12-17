@@ -19,27 +19,25 @@
 
 .help-image{
     border-radius: 10px;
+    margin-bottom: 20px;
     width: 80vw;
     height: 30vh;
     object-fit: cover;
 }
 
-.help-container {
-    
+.help-container {    
     background-position: center;
     background-size: cover;
-   
     width: 100%;
     
-
 }
 
 .post-details {
     font-size: 30px;
-    margin-left: 20px;
+    margin-left: 25px;
     margin-top: 10px;
     color: rgb(250, 242, 242);
-    
+    margin-bottom: 5px;
     
     text-shadow: 2px 2px 2px rgba(40, 40, 40, 0.3); ;
     width: 220px;
@@ -55,6 +53,8 @@
 }
 .description-title{
     font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .info-title{
@@ -64,11 +64,13 @@
 
 .name-creator{
     font-size: 18px;
+    margin-top: 5px;
 }
 
 .creator-title{
-    margin-top: 10px;
-    font: 20px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    font-size: 15px;
 }
 
 .volunteer{
@@ -77,6 +79,7 @@
 
 .info-description{
     font-size: 16px;
+    border-bottom: 1px solid whitesmoke;
 }
 
 .creator-picture{
@@ -125,10 +128,30 @@
 @media (min-width: 1000px) {
     .help-image{
         border-radius: 10px;
-        width: 50vw;
+        width: 30vw;
+        margin-left: 0 auto;
+        margin-bottom: 15px;
         height: 30vh;
         object-fit: cover;
-        margin: 0 auto;
+        
     }
+
+.general-post-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+   .post-details-container{
+    
+    width: 70vw;
+    
+   }
+   .creator-picture{
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+    
+}
 
 }
