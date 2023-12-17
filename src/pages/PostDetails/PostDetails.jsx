@@ -14,7 +14,7 @@ function PostDetails() {
     const [message, setMessage] = useState();
     const [volunteersArray, setVolunteersArray] = useState([])
     const [selectedVolunteer, setSelectedVolunteer] = useState(null)
-    console.log(selectedVolunteer)
+    //console.log(selectedVolunteer)
 
     const isCreator = () => {
         // console.log ("isCreator: ", user._id === helpData.foundHelpPost.creator._id, user._id, helpData.foundHelpPost.creator._id);
