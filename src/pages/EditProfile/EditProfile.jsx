@@ -84,7 +84,7 @@ function EditProfile() {
   return (
     <div>
       <h1>Edit my profile</h1>
-      <form onSubmit={(event) => putData(event)}>
+      <form encType="multipart/form-data" onSubmit={(event) => putData(event)}>
         <div className='edit-profile-container'>
           <label htmlFor="location">Location: </label>
           <textarea type="textarea" name="location" value={location} onChange={(event) => setLocation(event.target.value)} />

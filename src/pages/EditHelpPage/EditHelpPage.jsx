@@ -94,7 +94,7 @@ function EditHelpForm() {
 
 
             <div className="edit-help-container">
-                <form className="create-help-container" onSubmit={(event) => putHelp(event)}>
+                <form className="create-help-container" encType="multipart/form-data" onSubmit={(event) => putHelp(event)}>
 
                     <label htmlFor="title">Title</label>
                     <textarea value={title} onChange={(event) => setTitle(event.target.value)} type="text" name="title" />
