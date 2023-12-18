@@ -41,7 +41,7 @@ function HomePage() {
 			<div id="home-content-wrapper">
 
 				<div className="home-head">
-					<p className="home-title">How can you help today?</p>
+					<p className="home-title">HOW CAN YOU HELP TODAY?</p>
 					<br />
 					<div className="search-bar">
 						<input onChange={(event) => handleSearch(event.target.value)} type="text" name="search-input" id="search-input" />

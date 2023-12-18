@@ -91,6 +91,13 @@
 
 .nav-b-left:hover {
     background-color: rgb(255, 166, 70);
+    text-decoration: none;
+
+
+}
+
+a:hover {
+    text-decoration: none;
 
 }
 
@@ -104,19 +111,25 @@ nav .home {
     border: 0;
 }
 
+.nav-b-left a {
+    text-decoration: none;
+}
+
 .no-tokens-banner {
     z-index: 2;
     background-color: rgb(251, 106, 106);
     height: 50px;
     text-align: center;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 0px 0px 10px 10px;
     position: fixed;
+    top: 0;
     width: 100%;
+    transition: 400ms ease;
 }
 
 .no-tokens-banner.hidden {
     top: -100% !important;
-    transition: 500ms ease-in-out;
+    transition: 400ms ease-in-out;
 
 }
 

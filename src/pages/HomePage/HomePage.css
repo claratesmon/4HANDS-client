@@ -35,14 +35,15 @@ span i {
 
 .home-title {
 	font-size: 30px;
+	color: black;
 	font-weight: 300;
-	margin-bottom: 12px;
+	margin-bottom: 1px;
 	text-align: center;
-	/* border: 1px solid whitesmoke; */
+	width: 100vw;
 	padding: 10px;
-	border-radius: 60px;
-	background: linear-gradient(100deg, rgba(255, 187, 78, 0.7) 0%, rgba(58, 83, 132, 0.7) 25%, rgba(45, 134, 128, 0.7) 79%, rgba(255, 109, 104, 0.7) 100%);
-
+	
+	background-color: aliceblue;
+/* 	background: linear-gradient(100deg, rgba(255, 187, 78, 0.7) 0%, rgba(58, 83, 132, 0.7) 25%, rgba(45, 134, 128, 0.7) 79%, rgba(255, 109, 104, 0.7) 100%);*/
 }
 
 .posts-container {

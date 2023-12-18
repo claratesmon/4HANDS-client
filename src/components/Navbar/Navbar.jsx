@@ -24,7 +24,7 @@ function Navbar() {
       navigate("/myprofile");
       console.log("navigate called")
        try {
-         await new Promise((resolve) => setTimeout(resolve, 300));
+         await new Promise((resolve) => setTimeout(resolve, 100));
          const banner = document.querySelector(".no-tokens-banner")
          banner.classList.toggle("hidden");
  

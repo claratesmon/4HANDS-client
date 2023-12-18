@@ -2,9 +2,7 @@
     color: black;
 }
 
-.LoginPage button{
-    color: black;
-}
+
 
 
 .LoginPage {
@@ -21,8 +19,27 @@
     width: 350px;
     display:flex;
     flex-direction: column;  
+    align-items: center;
 }
 
 .submitbutton {
     margin-top: 20px;
+    color: aliceblue;
+    background-color: black;
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    width: 100px;
+    margin-bottom: 30px;
+}
+
+.sign-up-login{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
 }
