@@ -48,6 +48,16 @@
 
 }
 
+.sidebar-stroke{
+    background-color: aliceblue;
+    height: 2px;
+    width: 150px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+
+    
+}
+
 .side-element {
     color: whitesmoke;
     margin-bottom: 30px;

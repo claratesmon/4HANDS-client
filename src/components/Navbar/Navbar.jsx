@@ -23,26 +23,26 @@ function Navbar() {
     if (userData.tokens < 1) {
       navigate("/myprofile");
       console.log("navigate called")
-       try {
-         await new Promise((resolve) => setTimeout(resolve, 100));
-         const banner = document.querySelector(".no-tokens-banner")
-         banner.classList.toggle("hidden");
- 
-         if (banner.style.top === "0px") {
-           banner.style.top = "-300px"
-           
- 
-         }
- 
-       } catch (error) {
-         console.log("There was an error:", error)
-       }
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        const banner = document.querySelector(".no-tokens-banner")
+        banner.classList.toggle("hidden");
+
+        if (banner.style.top === "0px") {
+          banner.style.top = "-300px"
+
+
+        }
+
+      } catch (error) {
+        console.log("There was an error:", error)
+      }
 
     }
   }
   const hideBanner = () => {
     const banner = document.querySelector(".no-tokens-banner");
-  
+
     // Hide the banner after 5 seconds
     setTimeout(() => {
       banner.classList.add("hidden");
@@ -102,6 +102,7 @@ function Navbar() {
                         }
                       }} className="side-element">
                         Create Help request
+                    {"  "} <i class="fa fa-plus" style={{color: "white"}}></i>
                       </p>
                     </Link>
                   </li>
@@ -112,8 +113,13 @@ function Navbar() {
                   </li>
                   <li >
                     <Link to="/createtestimony">
-                      <p onClick={handleSidebar} className="side-element">Create testimony</p>
+                      <p onClick={handleSidebar} className="side-element">Create testimony {"   "}
+                      <i class="fa fa-plus" style={{color: "white"}}></i>
+                      </p>
                     </Link>
+                  </li>
+                  <li>
+                    <div className="sidebar-stroke">{''}</div>
                   </li>
                   <li >
                     <p onClick={logOutUser} className="side-element">Logout</p>
